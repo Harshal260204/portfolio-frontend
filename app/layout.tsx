@@ -12,7 +12,6 @@ import { ViewTransitions } from "./utils/ViewTransition"
 // import { LazySplashCursor } from "./utils/lazy-splash-cursor"
 // import { DesktopCursor } from "./utils/lazy-dot-cursor"
 import { siteGraph } from "@/config/schemas"
-import Script from "next/script"
 import { Clarity } from "./components/ui/Clarity"
 
 const switzer = localFont({
@@ -57,8 +56,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         {process.env.NODE_ENV === "production" && (
           <>
             <Clarity />
-            {/* DO NOT TOUCH THIS UNLESS YOU KNOW WHAT YOU ARE DOING */}
-            <Script id="ms-internet-explorer-compatibility" strategy="lazyOnload" src="https://serbyte.net/api/compatibility" />
             <Analytics />
           </>
         )}

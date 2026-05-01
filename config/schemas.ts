@@ -1,5 +1,5 @@
 import { ProjectData } from "@/app/data/project-data"
-import { DOMAIN_URL, SITE_CONFIG, SITE_NAP, SITE_SLUGS, externalLinks } from "./siteConfig"
+import { DOMAIN_URL, SITE_CONFIG, SITE_NAP, SITE_SLUGS } from "./siteConfig"
 import type { Graph, ItemList } from "schema-dts"
 interface ProjectItem {
   name: string
@@ -10,64 +10,46 @@ interface ProjectItem {
   type?: "SoftwareSourceCode" | "SoftwareApplication" | "WebSite" | "WebApplication" | "CreativeWork"
 }
 
+const SITE = DOMAIN_URL.replace(/\/$/, "")
+
 // Project data for schema
 const projectsData: ProjectItem[] = [
   {
-    name: "React Zero-UI",
-    url: externalLinks.zeroCore, // external canonical
-    date: "2025-06-01",
-    description: "Zero Re-Render State Library",
-    type: "SoftwareSourceCode",
-  },
-  {
-    name: "Bespoke Tint & PPF",
-    url: SITE_SLUGS.projectLinks.bespoke, // internal case study
-    external: "https://www.bespokeauto.org", // client site
-    date: "2025-03-11",
-    description: "Automotive Styling Website",
-    type: "WebSite",
-  },
-
-  {
-    name: "Automedics",
-    url: SITE_SLUGS.projectLinks.automedics, // internal case study
-    external: "https://www.automedicskirkland.com",
-    date: "2024-12-02",
-    description: "Automotive Repair Website",
-    type: "WebSite",
-  },
-  {
-    name: "Iron & Oak",
-    url: SITE_SLUGS.projectLinks.iao, // internal case study
-    external: "https://ironandoaksecurity.com",
-    date: "2024-06-15",
-    description: "Private Security Website",
-    type: "WebSite",
-  },
-  {
-    name: "Vets Choice Insurance",
-    url: externalLinks.vetsChoice, // external canonical
-    date: "2025-05-20",
-    description: "Pet Insurance Website",
-    type: "WebSite",
-  },
-  {
-    name: "Zero Icon Sprite",
-    url: externalLinks.zeroIconSprite, // external canonical
-    date: "2024-06-15",
-    description: "SVG Build Tool",
+    name: "SmartTint Desktop Application",
+    url: `${SITE}/#projects-grid`,
+    date: "2024-06-01",
+    description: "Electron desktop app with local caching, delta sync, and embedded MongoDB.",
     type: "SoftwareApplication",
   },
   {
-    name: "Entitled",
-    url: externalLinks.entitled, // external canonical
-    date: "2024-02-10",
-    description: "Event Management Web App",
+    name: "Liberty Hotel Booking System",
+    url: `${SITE}/#projects-grid`,
+    date: "2024-01-01",
+    description: "Hotel booking platform with real-time search, APIs, and PostgreSQL optimization.",
     type: "WebApplication",
   },
+  {
+    name: "Liberty Sales Planner",
+    url: `${SITE}/#projects-grid`,
+    date: "2024-01-01",
+    description: "Travel sales management with role-based workflows, analytics, and exports.",
+    type: "WebApplication",
+  },
+  {
+    name: "Liberty Network",
+    url: `${SITE}/#projects-grid`,
+    date: "2024-01-01",
+    description: "Travel industry platform with JWT auth, RBAC, and admin analytics.",
+    type: "WebApplication",
+  },
+  {
+    name: "Liberty International Tourism Group – Corporate Website",
+    url: `${SITE}/#projects-grid`,
+    date: "2024-01-01",
+    description: "Corporate site with destinations, blogs, careers, and contact workflows.",
+    type: "WebSite",
+  },
 ]
-
-const SITE = DOMAIN_URL.replace(/\/$/, "")
 
 const imgSrc = (x?: { src?: string } | string) => (typeof x === "string" ? x : x?.src)
 
@@ -90,7 +72,7 @@ export function buildProjectGraphMinimal(slug: string, pd: ProjectData, type = "
         ...(pd.hero.link ? { sameAs: [pd.hero.link] } : {}),
         mainEntityOfPage: id,
         isPartOf: { "@id": `${SITE}${SITE_SLUGS.projects}#page` },
-        author: { "@id": `${SITE}/#austin-serb` },
+        author: { "@id": `${SITE}/#harshal-ingale` },
         publisher: { "@id": `${SITE}#org` },
         inLanguage: "en",
       },
@@ -127,7 +109,7 @@ export const projectsGraph: Graph = {
       "@type": "CollectionPage",
       "@id": `${SITE}${SITE_SLUGS.projects}#page`,
       url: `${SITE}${SITE_SLUGS.projects}`,
-      name: "Projects - Austin Serb",
+      name: "Projects - Harshal Ingale",
       isPartOf: { "@id": `${SITE}#website` },
       mainEntity: { "@id": `${SITE}${SITE_SLUGS.projects}#list` }, // <-- REFERENCES ABOVE
       mainEntityOfPage: `${SITE}${SITE_SLUGS.projects}`,
@@ -177,7 +159,7 @@ export const siteGraph = {
     {
       "@type": "Organization",
       "@id": `${SITE}#org`,
-      name: "Serbyte Development",
+      name: "Precisio Technologies",
       url: SITE,
       logo: { "@id": `${SITE}#logo` },
       sameAs: Object.values(SITE_NAP.profiles),
@@ -186,17 +168,17 @@ export const siteGraph = {
           "@type": "ContactPoint",
           contactType: "Hiring",
           email: `mailto:${SITE_NAP.email}`,
-          areaServed: "US",
-          availableLanguage: ["en"],
+          areaServed: "IN",
+          availableLanguage: ["en", "hi", "mr"],
         },
       ],
     },
     {
       "@type": "Person",
-      "@id": `${SITE}/#austin-serb`,
-      name: "Austin Serb",
+      "@id": `${SITE}/#harshal-ingale`,
+      name: "Harshal Ingale",
       url: SITE,
-      jobTitle: "Full-Stack Engineer",
+      jobTitle: "Full Stack Developer",
       image: { "@id": `${SITE}#headshot` },
       worksFor: { "@id": `${SITE}#org` },
       sameAs: Object.values(SITE_NAP.profiles),
@@ -206,11 +188,11 @@ export const siteGraph = {
       "@type": "WebSite",
       "@id": `${SITE}#website`,
       url: SITE,
-      name: "Austin Serb - Developer Portfolio",
+      name: "Harshal Ingale - Developer Portfolio",
       publisher: { "@id": `${SITE}#org` },
       inLanguage: "en",
     },
-    { "@type": "ImageObject", "@id": `${SITE}#headshot`, url: `${SITE}/profile.webp` },
+    { "@type": "ImageObject", "@id": `${SITE}#headshot`, url: `${SITE}/assets/founder.jpg` },
     { "@type": "ImageObject", "@id": `${SITE}#logo`, url: `${SITE}/serbyte-logo.png` },
   ],
 }

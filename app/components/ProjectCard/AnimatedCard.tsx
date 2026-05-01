@@ -36,7 +36,7 @@ export function AnimatedCard({ src, alt, offset, color, type, gridId, progress, 
     <Link
       data-text={dataText}
       aria-label={alt}
-      target={href ? "_blank" : undefined}
+      target={href?.startsWith("http") ? "_blank" : undefined}
       href={href ?? `${SITE_SLUGS.projects}/${gridId}`}
       data-grid-id={gridId}
       className="reveal-false:pointer-events-none"

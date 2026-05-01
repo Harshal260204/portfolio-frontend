@@ -60,7 +60,7 @@ export const CallToActionButton = () => {
   }
 
   return (
-    <a href={SITE_NAP.profiles.github} target="_blank" rel="noopener" aria-label="Austin Serb's GitHub">
+    <a href={SITE_NAP.profiles.linkedIn} target="_blank" rel="noopener" aria-label="Harshal Ingale on LinkedIn">
       <MotionButton
         initial="initial"
         animate="animate"
@@ -79,12 +79,12 @@ export const CallToActionButton = () => {
           <MotionDiv variants={youVariants} className={clsx("hidden items-center gap-1 md:flex")}>
             <span className="text-xl">+</span>
             <Icon
-              name="github"
+              name="linkedin"
               className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-sm font-semibold text-black ring-1 ring-black/50"
             />
           </MotionDiv>
         </div>
-        See My Github
+        Connect on LinkedIn
       </MotionButton>
     </a>
   )

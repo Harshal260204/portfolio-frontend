@@ -4,34 +4,67 @@ import { Text } from "../ui/Elements"
 import { AnimatedH2 } from "./ui/AnimatedH2"
 import type { Variants } from "motion"
 import { MotionUl, MotionLi } from "../utils/lazy-ui"
+import type { IconType } from "react-icons"
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiElectron,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiExpress,
+  SiNestjs,
+  SiMysql,
+  SiPostgresql,
+  SiMongodb,
+  SiGithub,
+  SiGitlab,
+  SiTailwindcss,
+  SiBootstrap,
+  SiChakraui,
+  SiCss,
+  SiHtml5,
+} from "react-icons/si"
 
-const tech = [
-  { name: "React", src: "react" },
-  { name: "Next", src: "next" },
-  { name: "TypeScript", src: "typescript" },
-  { name: "Python", src: "python" },
-  { name: "Express", src: "express" },
-  { name: "OpenAI", src: "openai" },
-  { name: "MongoDB", src: "mongodb" },
-  { name: "PostgreSQL", src: "postgresql" },
-  { name: "Figma", src: "figma" },
-  { name: "Motion", src: "motion" },
+/** Full skill list; icons rendered monochrome (black on white) to match portfolio tile style */
+const TECH_STACK: { name: string; Icon: IconType }[] = [
+  { name: "JavaScript", Icon: SiJavascript },
+  { name: "TypeScript", Icon: SiTypescript },
+  { name: "Python", Icon: SiPython },
+  { name: "Electron", Icon: SiElectron },
+  { name: "React Native", Icon: SiReact },
+  { name: "React", Icon: SiReact },
+  { name: "Next.js", Icon: SiNextdotjs },
+  { name: "Node.js", Icon: SiNodedotjs },
+  { name: "Express", Icon: SiExpress },
+  { name: "NestJS", Icon: SiNestjs },
+  { name: "MySQL", Icon: SiMysql },
+  { name: "PostgreSQL", Icon: SiPostgresql },
+  { name: "MongoDB", Icon: SiMongodb },
+  { name: "GitHub", Icon: SiGithub },
+  { name: "GitLab", Icon: SiGitlab },
+  { name: "Tailwind CSS", Icon: SiTailwindcss },
+  { name: "Bootstrap", Icon: SiBootstrap },
+  { name: "Chakra UI", Icon: SiChakraui },
+  { name: "CSS", Icon: SiCss },
+  { name: "HTML", Icon: SiHtml5 },
 ]
 
 const services = [
-  { name: "Full Stack Development", src: "magic-wand" },
-  { name: "React Development", src: "paint-bucket" },
-  { name: "Performance Optimization", src: "web" },
-  { name: "UI/UX Design", src: "world" },
-  { name: "Code Reviews", src: "planet" },
-  { name: "Advanced Motion", src: "cube" },
+  { name: "Full stack & MERN development", src: "magic-wand" },
+  { name: "REST APIs, JWT & RBAC", src: "web" },
+  { name: "React & responsive UI systems", src: "paint-bucket" },
+  { name: "Electron & React Native", src: "cube" },
+  { name: "Database design & query tuning", src: "planet" },
+  { name: "Performance & reliability", src: "world" },
 ]
 
 const container: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.05,
+      staggerChildren: 0.04,
     },
   },
 }
@@ -76,6 +109,7 @@ const element2: Variants = {
     },
   },
 }
+
 export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: string }) => {
   return (
     <section id="technologies" className={clsx("inside-container relative z-2 items-start justify-center md:flex-row md:items-center", className)}>
@@ -86,38 +120,42 @@ export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: st
           <span className="text-slate-500">Toolkit</span>
         </AnimatedH2>
 
-        {/* Tech Stack */}
+        {/* Tech Stack — black logos on white squircles, soft float shadow (full skill list) */}
         <div className="w-full">
           <Text size="base" className="mb-8">
-            My tech stack
+            Tech stack & skills
           </Text>
 
-          <MotionUl
-            className="grid grid-cols-5 gap-8 max-[420px]:justify-items-center md:justify-items-center"
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-          >
-            {tech.map(({ name, src }) => (
-              <MotionLi key={name} variants={element}>
-                <div className="group relative">
-                  <input placeholder={name} type="checkbox" className="peer hidden" id={name} />
-
-                  <label
-                    htmlFor={name}
-                    className="button-shadow flex h-13 w-13 items-center justify-center rounded-xl border border-gray-200 bg-white peer-checked:translate-y-0.5 peer-checked:shadow-none hover:translate-y-0.5"
+          <div className="relative overflow-hidden rounded-3xl bg-[linear-gradient(180deg,rgb(248_250_252)_0%,rgb(241_245_249)_100%)] p-5 ring-1 ring-slate-200/60 md:p-8">
+            <div
+              className="pointer-events-none absolute inset-0 opacity-[0.22] [background-image:url('/assets/framer-noise.png')] [background-size:128px] bg-repeat"
+              aria-hidden
+            />
+            <MotionUl
+              className="relative z-[1] mx-auto grid max-w-5xl grid-cols-2 justify-items-center gap-x-3 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+              variants={container}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+            >
+              {TECH_STACK.map(({ name, Icon: TechIcon }) => (
+                <MotionLi key={name} variants={element} className="flex w-full max-w-[5.25rem] flex-col items-center gap-2.5 sm:max-w-[5.5rem]">
+                  <div
+                    className={clsx(
+                      "flex aspect-square w-full items-center justify-center rounded-[1.35rem] bg-white",
+                      "border border-slate-100",
+                      "shadow-[0_4px_20px_-4px_rgba(15,23,42,0.14),0_2px_10px_-3px_rgba(15,23,42,0.08)]",
+                      "transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-8px_rgba(15,23,42,0.18),0_4px_14px_-4px_rgba(15,23,42,0.1)]",
+                    )}
+                    aria-label={name}
                   >
-                    <Icon name={src} width={30} height={30} className="object-contain" />
-                  </label>
-                  {/* optional tooltip */}
-                  <span className="absolute -top-7 left-1/2 -translate-x-1/2 rounded-full bg-black px-2 py-1 text-xs text-white opacity-0 transition delay-100 duration-300 group-hover:opacity-100 peer-checked:opacity-100">
-                    {name}
-                  </span>
-                </div>
-              </MotionLi>
-            ))}
-          </MotionUl>
+                    <TechIcon className="h-[34px] w-[34px] shrink-0 text-black [&_path]:fill-current" aria-hidden />
+                  </div>
+                  <span className="text-center text-[10px] leading-tight font-medium tracking-tight text-slate-800 sm:text-[11px]">{name}</span>
+                </MotionLi>
+              ))}
+            </MotionUl>
+          </div>
         </div>
       </div>
 

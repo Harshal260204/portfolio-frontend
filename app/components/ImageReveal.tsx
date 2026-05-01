@@ -8,9 +8,9 @@ interface ImageRevealProps extends Omit<ImageProps, "placeholder"> {
   className?: string
 }
 
-export function ImageReveal({ className = "", ...img }: ImageRevealProps): ReactElement {
+export function ImageReveal({ className = "", alt = "Harshal Ingale", ...img }: ImageRevealProps): ReactElement {
   return (
-    <div className={`relative max-w-60 overflow-hidden rounded-2xl ${className} `}>
+    <div className={`relative max-w-60 overflow-hidden rounded-3xl ${className} `}>
       <MotionDiv
         initial={{ x: "100%" }}
         whileInView={{ x: 0 }}
@@ -36,8 +36,8 @@ export function ImageReveal({ className = "", ...img }: ImageRevealProps): React
           id="headshot"
           {...img}
           fill
-          alt="Austin Serb Profile Photo"
-          className={`rounded-2xl object-cover saturate-125`}
+          alt={alt}
+          className={`rounded-3xl object-cover object-top`}
           sizes="(max-width: 560px) 300px, (max-width: 768px) 500px, 50vw"
         />
       </MotionDiv>
