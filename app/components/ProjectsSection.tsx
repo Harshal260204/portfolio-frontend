@@ -1,7 +1,7 @@
 import React from "react"
 import { ProjectsGrid } from "./ProjectsGrid"
 import { AnimatedText } from "./AnimatedText"
-import Link from "next/link"
+import { Link } from "../utils/Link"
 import { Icon } from "./Icon"
 import { SITE_SLUGS } from "@/config/siteConfig"
 
@@ -20,10 +20,13 @@ export const ProjectsSection: React.FC = () => {
 
       <ProjectsGrid />
 
-      <Link href={SITE_SLUGS.projects} className="group flex items-center justify-center gap-2">
-        <span className="underline-hover text-xl leading-6 tracking-tight text-slate-700 md:text-2xl">View More Projects</span>
-        <Icon name="arrow-right" height={18} width={18} className="group-hover:animate-wiggle-right" strokeWidth={0.5} />
-      </Link>
+      {/* z-index above stacked/transformed project cards so the link stays clickable */}
+      <div className="relative z-30 flex justify-center pt-10 md:pt-14">
+        <Link href={SITE_SLUGS.projects} className="group relative inline-flex items-center gap-2 py-2">
+          <span className="underline-hover text-xl leading-6 tracking-tight text-slate-700 md:text-2xl">View More Projects</span>
+          <Icon name="arrow-right" height={18} width={18} className="group-hover:animate-wiggle-right" strokeWidth={0.5} />
+        </Link>
+      </div>
     </section>
   )
 }

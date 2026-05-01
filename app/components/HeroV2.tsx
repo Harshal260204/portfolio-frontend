@@ -30,7 +30,7 @@ export const HeroV2 = () => {
 
           <AnimatedElement element="p" delay={0.6} className="max-w-xs text-sm leading-snug tracking-tight text-slate-700 md:max-w-sm md:pr-4 md:text-base">
             <strong className="font-semibold text-slate-900">Full Stack Developer.</strong> MERN stack specialist building scalable web, desktop, and mobile
-            apps at Precisio Technologies — React, Node.js, PostgreSQL, MongoDB, Electron, and React Native.
+            apps at Precisio Technologies React, Node.js, PostgreSQL, MongoDB, Electron, and React Native.
           </AnimatedElement>
 
           <CallToActionButton />

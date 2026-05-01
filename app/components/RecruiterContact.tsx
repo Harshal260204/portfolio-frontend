@@ -7,6 +7,7 @@ import { SITE_NAP } from "@/config/siteConfig"
 import { Mail } from "@react-zero-ui/icon-sprite"
 import { BlackButtonLink } from "./ui/BlackButtonLink"
 import { WhiteButtonLink } from "./ui/WhiteButtonLink"
+import { SiWhatsapp } from "react-icons/si"
 
 export const RecruiterContact: React.FC = () => {
   return (
@@ -51,6 +52,11 @@ export const RecruiterContact: React.FC = () => {
             <WhiteButtonLink href={SITE_NAP.profiles.linkedIn}>
               <Icon name="linkedin" height={18} width={18} className="h-[18px] w-[18px]" />
               LinkedIn
+            </WhiteButtonLink>
+
+            <WhiteButtonLink href={SITE_NAP.whatsappHref}>
+              <SiWhatsapp className="h-[18px] w-[18px] text-slate-900" aria-hidden />
+              WhatsApp
             </WhiteButtonLink>
           </div>
 

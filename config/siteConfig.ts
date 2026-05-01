@@ -27,8 +27,8 @@ export const SITE_NAP = {
   contact: "Harshal Ingale",
   contactTitle: "Full Stack Developer",
   email: "harshalingale26@gmail.com",
-  phone: "+918080101085",
-  formattedPhone: "+91 80801 01085",
+  /** Opens WhatsApp chat (same contact number; do not display raw phone on site) */
+  whatsappHref: "https://wa.me/918080101085",
   addressLink: "https://www.google.com/maps/search/?api=1&query=Navi+Mumbai+Maharashtra",
   street: "",
   city: "Navi Mumbai",

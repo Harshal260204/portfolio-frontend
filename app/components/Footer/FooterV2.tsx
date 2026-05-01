@@ -32,9 +32,14 @@ export const FooterV2: React.FC = () => {
               </Link>
             </li>
             <li className="flex flex-col gap-1 md:gap-2">
-              <span className="text-gray-500">Phone</span>
-              <Link href={`tel:${SITE_NAP.phone}`} className="w-fit text-sm transition-colors duration-200 hover:text-gray-300">
-                {SITE_NAP.formattedPhone}
+              <span className="text-gray-500">WhatsApp</span>
+              <Link
+                href={SITE_NAP.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-fit text-sm transition-colors duration-200 hover:text-gray-300"
+              >
+                Chat on WhatsApp
               </Link>
             </li>
             <li className="flex flex-col gap-2">

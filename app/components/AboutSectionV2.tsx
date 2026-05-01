@@ -41,66 +41,32 @@ export const AboutSectionV2 = ({ className = "" }: { className?: string }) => {
             </MotionDiv>
           </div>
           {/* ---------------- right column ---------------- */}
-          <Typography as="article" size="lg" className="[flex:1.5_0_0px] space-y-8 text-slate-500">
+          <Typography as="article" size="lg" className="[flex:1.5_0_0px] space-y-6 text-slate-500">
             <p>
-              <strong className="font-semibold text-slate-900">Full-Stack MERN developer</strong> with hands-on experience building scalable, secure, and
-              user-centric web, desktop, and mobile applications. Currently at Precisio Technologies on production systems using React.js, Node.js, Express.js,
-              MongoDB, PostgreSQL, and MySQL — with strong expertise in APIs, database design, performance optimization, and cross-platform work using Electron and
-              React Native.
+              I am a <strong className="font-semibold text-slate-900">full-stack MERN developer</strong> with experience building scalable, secure, and user-focused web,
+              desktop, and mobile applications. Currently, I work at <strong className="font-semibold text-slate-900">Precisio Technologies</strong>, developing production-grade
+              systems using <strong className="font-semibold text-slate-900">React.js</strong>, <strong className="font-semibold text-slate-900">Node.js</strong>,{" "}
+              <strong className="font-semibold text-slate-900">Express.js</strong>, and databases including <strong className="font-semibold text-slate-900">MongoDB</strong>,{" "}
+              <strong className="font-semibold text-slate-900">PostgreSQL</strong>, and <strong className="font-semibold text-slate-900">MySQL</strong>. My work focuses on{" "}
+              <strong className="font-semibold text-slate-900">API development</strong>, <strong className="font-semibold text-slate-900">database design</strong>,{" "}
+              <strong className="font-semibold text-slate-900">performance optimization</strong>, and cross-platform solutions using{" "}
+              <strong className="font-semibold text-slate-900">Electron</strong> and <strong className="font-semibold text-slate-900">React Native</strong>.
             </p>
-
-            <div className="space-y-4">
-              <p className="font-semibold text-slate-900">Experience</p>
-              <ul className="list-inside list-disc space-y-2 text-base">
-                <li>
-                  <strong className="text-slate-800">MERN Stack Developer — Precisio Technologies</strong> (Apr 2025 – Present). Production full-stack apps,
-                  secure REST APIs with JWT and RBAC, responsive React 18 UIs (Tailwind, Bootstrap, CSS modules), travel and enterprise platforms, query and API
-                  performance tuning.
-                </li>
-                <li>
-                  <strong className="text-slate-800">Freelance MERN Stack Developer</strong> (Nov 2023 – Present). End-to-end web apps for clients, REST APIs,
-                  third-party integrations, and requirements through delivery.
-                </li>
-              </ul>
-            </div>
-
-            <div className="space-y-2">
-              <p className="font-semibold text-slate-900">Education</p>
-              <ul className="list-inside list-disc space-y-1 text-base">
-                <li>Master of Computer Applications — Bharti Vidyapeeth Pune (Distance Education), Aug 2025 – Present</li>
-                <li>Bachelor of Science in Computer Science — Sanpada College of Commerce and Technology, Jul 2021 – Apr 2024</li>
-              </ul>
-            </div>
-
-            <div className="space-y-2">
-              <p className="font-semibold text-slate-900">Languages</p>
-              <p className="text-base">English (full professional proficiency), Marathi and Hindi (native or bilingual).</p>
-            </div>
-
-            <div className="space-y-3">
-              <p className="font-semibold text-slate-900">Selected projects</p>
-              <ul className="list-inside list-disc space-y-2 text-base">
-                <li>
-                  <strong className="text-slate-800">SmartTint</strong> — Electron app for paint professionals with local caching, delta sync, embedded MongoDB, and
-                  patch updates.
-                </li>
-                <li>
-                  <strong className="text-slate-800">Liberty Hotel Booking System</strong> — Real-time search and booking, hotel API integrations, PostgreSQL tuning,
-                  payments and refunds with cron and caching.
-                </li>
-                <li>
-                  <strong className="text-slate-800">Liberty Sales Planner</strong> — Role-based sales planning, 11+ activity types, calendar, analytics, PDF/Excel
-                  exports.
-                </li>
-                <li>
-                  <strong className="text-slate-800">Liberty Network</strong> — Travel management with JWT auth, RBAC, verification, markup, and admin analytics.
-                </li>
-                <li>
-                  <strong className="text-slate-800">Liberty International Tourism Group</strong> — Corporate website with destinations, blogs, careers, contact,
-                  email automation, and uploads.
-                </li>
-              </ul>
-            </div>
+            <p>
+              Since <strong className="font-semibold text-slate-900">April 2025</strong>, I have been contributing as a <strong className="font-semibold text-slate-900">MERN stack developer at Precisio</strong>, where I
+              design and maintain full-stack applications, develop secure REST APIs with <strong className="font-semibold text-slate-900">JWT-based authentication</strong> and{" "}
+              <strong className="font-semibold text-slate-900">role-based access control</strong>, and build responsive front-end interfaces using{" "}
+              <strong className="font-semibold text-slate-900">React 18</strong> with <strong className="font-semibold text-slate-900">Tailwind</strong>,{" "}
+              <strong className="font-semibold text-slate-900">Bootstrap</strong>, and <strong className="font-semibold text-slate-900">CSS modules</strong>. I also optimize database
+              queries and improve API performance. In addition, I have been working as a <strong className="font-semibold text-slate-900">freelance MERN developer</strong> since{" "}
+              <strong className="font-semibold text-slate-900">November 2023</strong>, delivering end-to-end solutions including web applications, APIs, and third-party integrations.
+            </p>
+            <p>
+              I am currently pursuing a <strong className="font-semibold text-slate-900">Master of Computer Applications (MCA)</strong> from{" "}
+              <strong className="font-semibold text-slate-900">Bharti Vidyapeeth, Pune</strong> (distance learning), and hold a{" "}
+              <strong className="font-semibold text-slate-900">Bachelor of Science in Computer Science</strong> from{" "}
+              <strong className="font-semibold text-slate-900">Sanpada College of Commerce and Technology</strong>.
+            </p>
           </Typography>
         </div>
       </div>

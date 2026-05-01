@@ -51,13 +51,21 @@ const TECH_STACK: { name: string; Icon: IconType }[] = [
   { name: "HTML", Icon: SiHtml5 },
 ]
 
-const services = [
-  { name: "Full stack & MERN development", src: "magic-wand" },
-  { name: "REST APIs, JWT & RBAC", src: "web" },
-  { name: "React & responsive UI systems", src: "paint-bucket" },
-  { name: "Electron & React Native", src: "cube" },
-  { name: "Database design & query tuning", src: "planet" },
-  { name: "Performance & reliability", src: "world" },
+/** Right column: professional competencies (icons from custom sprite, cycled for variety) */
+const COMPETENCIES: { name: string; icon: string }[] = [
+  { name: "Full stack & MERN development", icon: "magic-wand" },
+  { name: "REST APIs, JWT & RBAC", icon: "web" },
+  { name: "Scalable architecture & system design", icon: "planet" },
+  { name: "React & responsive UI systems", icon: "paint-bucket" },
+  { name: "State management (Redux, Context API)", icon: "cube" },
+  { name: "Electron & React Native apps", icon: "cube" },
+  { name: "API integration & third-party services", icon: "web" },
+  { name: "Database design & query optimization", icon: "planet" },
+  { name: "Performance optimization & caching", icon: "world" },
+  { name: "Authentication & security best practices", icon: "web" },
+  { name: "Testing & debugging (Postman, basic unit testing)", icon: "planet" },
+  { name: "Deployment & hosting (Vercel, Node servers, Docker basics)", icon: "world" },
+  { name: "Agile development & team collaboration", icon: "magic-wand" },
 ]
 
 const container: Variants = {
@@ -159,25 +167,30 @@ export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: st
         </div>
       </div>
 
-      {/*  RIGHT COLUMN  */}
-      <MotionUl
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.8 }}
-        variants={container2}
-        className="grid [flex:1_0_0px] grid-cols-2 gap-8 md:grid-cols-1"
-      >
-        {services.map(({ name, src }) => (
-          <MotionLi key={name} variants={element2} className="flex items-center gap-3">
-            <span className="button-shadow flex aspect-square h-10 w-10 items-center justify-center rounded-full bg-black">
-              <Icon name={src} width={25} height={30} className="object-contain invert" />
-            </span>
-            <Text as="span" size="sm">
-              {name}
-            </Text>
-          </MotionLi>
-        ))}
-      </MotionUl>
+      {/*  RIGHT COLUMN — competency list */}
+      <div className="flex min-w-0 [flex:1_0_0px] flex-col gap-6 md:max-w-lg lg:max-w-xl">
+        <Text size="base" className="text-slate-600">
+          Core competencies
+        </Text>
+        <MotionUl
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={container2}
+          className="grid grid-cols-1 gap-5 md:gap-5"
+        >
+          {COMPETENCIES.map(({ name, icon }) => (
+            <MotionLi key={name} variants={element2} className="flex items-center gap-3">
+              <span className="button-shadow flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black">
+                <Icon name={icon} width={25} height={30} className="object-contain invert" />
+              </span>
+              <Text as="span" size="sm" className="min-w-0 flex-1 leading-snug text-slate-600">
+                {name}
+              </Text>
+            </MotionLi>
+          ))}
+        </MotionUl>
+      </div>
     </section>
   )
 }
